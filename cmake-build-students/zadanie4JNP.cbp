@@ -84,7 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/tmp/tmp.dIjovpnUdW/hunt_examples.cpp">
+			<Option target="zadanie4JNP"/>
+		</Unit>
 		<Unit filename="/tmp/tmp.dIjovpnUdW/main.cpp">
+			<Option target="zadanie4JNP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.dIjovpnUdW/member.h">
+			<Option target="zadanie4JNP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.dIjovpnUdW/treasure.h">
+			<Option target="zadanie4JNP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.dIjovpnUdW/treasure_hunt.h">
 			<Option target="zadanie4JNP"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.dIjovpnUdW/CMakeLists.txt">

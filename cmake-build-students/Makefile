@@ -142,6 +142,33 @@ zadanie4JNP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/build
 .PHONY : zadanie4JNP/fast
 
+hunt_examples.o: hunt_examples.cpp.o
+
+.PHONY : hunt_examples.o
+
+# target to build an object file
+hunt_examples.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/hunt_examples.cpp.o
+.PHONY : hunt_examples.cpp.o
+
+hunt_examples.i: hunt_examples.cpp.i
+
+.PHONY : hunt_examples.i
+
+# target to preprocess a source file
+hunt_examples.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/hunt_examples.cpp.i
+.PHONY : hunt_examples.cpp.i
+
+hunt_examples.s: hunt_examples.cpp.s
+
+.PHONY : hunt_examples.s
+
+# target to generate assembly for a file
+hunt_examples.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/hunt_examples.cpp.s
+.PHONY : hunt_examples.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -178,6 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... zadanie4JNP"
+	@echo "... hunt_examples.o"
+	@echo "... hunt_examples.i"
+	@echo "... hunt_examples.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/zadanie4JNP.dir/hunt_examples.cpp.o"
   "CMakeFiles/zadanie4JNP.dir/main.cpp.o"
   "zadanie4JNP"
   "zadanie4JNP.pdb"

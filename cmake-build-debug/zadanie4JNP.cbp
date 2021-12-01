@@ -83,6 +83,15 @@
 		<Unit filename="/Users/jk/Desktop/zadanie4JNP/main.cpp">
 			<Option target="zadanie4JNP"/>
 		</Unit>
+		<Unit filename="/Users/jk/Desktop/zadanie4JNP/member.h">
+			<Option target="zadanie4JNP"/>
+		</Unit>
+		<Unit filename="/Users/jk/Desktop/zadanie4JNP/treasure.h">
+			<Option target="zadanie4JNP"/>
+		</Unit>
+		<Unit filename="/Users/jk/Desktop/zadanie4JNP/treasure_hunt.h">
+			<Option target="zadanie4JNP"/>
+		</Unit>
 		<Unit filename="/Users/jk/Desktop/zadanie4JNP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -93,12 +93,12 @@ clean: CMakeFiles/zadanie4JNP.dir/clean
 CMakeFiles/zadanie4JNP.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/zadanie4JNP.dir/build.make CMakeFiles/zadanie4JNP.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles --progress-num=1,2 "Built target zadanie4JNP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles --progress-num=1,2,3 "Built target zadanie4JNP"
 .PHONY : CMakeFiles/zadanie4JNP.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/zadanie4JNP.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/zadanie4JNP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles 0
 .PHONY : CMakeFiles/zadanie4JNP.dir/rule
