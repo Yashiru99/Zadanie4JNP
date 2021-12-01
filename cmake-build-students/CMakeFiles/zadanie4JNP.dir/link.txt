@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/zadanie4JNP.dir/main.cpp.o -o zadanie4JNP 
