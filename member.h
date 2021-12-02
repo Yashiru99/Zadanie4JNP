@@ -74,24 +74,23 @@ private:
     strength_t strength = nthFib(completedExpeditions);
 public:
 
-    Veteran() = default;
+    constexpr Veteran() = default;
 
-    bool isArmed = true;
+    static constexpr bool isArmed = true;
 
-    void loot(auto &&treasure) {
+    constexpr void loot(auto &&treasure) {
         collectedTreasure += treasure.getLoot();
     }
 
-    ValueType pay() {
+    constexpr ValueType pay() {
         ValueType treasureFound = collectedTreasure;
         collectedTreasure = 0;
         return treasureFound;
     }
 
-    strength_t getStrength() {
+    constexpr strength_t getStrength() {
         return strength;
     }
-
 };
 
 #endif //MEMBER_H
