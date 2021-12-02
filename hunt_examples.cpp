@@ -1,5 +1,5 @@
 #include "treasure_hunt.h"
-#include <cstdint>
+    #include <cstdint>
 
 namespace {
 

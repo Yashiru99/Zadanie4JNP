@@ -2,11 +2,14 @@
 #define TREASURE_H
 
 #include <type_traits>
+#include <concepts>
 
-template<typename ValueType, bool IsTrapped>
+
+template<typename ValueType>
+concept TreasureValid = std::integral<ValueType>;
+
+template<TreasureValid ValueType, bool IsTrapped>
 class Treasure{
-    static_assert(std::is_integral<ValueType>::value, "ValueType must be an integral type");
-
 private:
     ValueType value;
 public:

@@ -1,92 +1,97 @@
 #ifndef MEMBER_H
 #define MEMBER_H
 
-#define reduce_strength_constant 2
 #include <type_traits>
 #include "treasure.h"
 
-template <typename ValueType, bool IsArmed>
-class Adventurer{
-    static_assert(std::is_integral<ValueType>::value, "ValueType must be an integral type");
+static const int reduce_strength_constant = 2;
+
+template<TreasureValid ValueType, bool IsArmed>
+class Adventurer {
+public:
+    using strength_t = uint32_t;
+
 private:
     ValueType collectedTreasure = 0;
-public:
-    bool isArmed = IsArmed;
 
-    ValueType pay(){
+    strength_t strength = 0;
+
+public:
+    constexpr Adventurer() requires (!IsArmed) = default;
+
+    constexpr Adventurer(size_t strength) requires IsArmed: strength(strength) {}
+
+    constexpr strength_t getStrength() requires IsArmed {
+        return strength;
+    }
+
+    static constexpr bool isArmed = IsArmed;
+
+    constexpr void loot(Treasure<ValueType, false> &&treasure) {
+        if (!treasure.isTrapped)
+            collectedTreasure = treasure.getLoot();
+    }
+
+    constexpr void loot(Treasure<ValueType, true> &&treasure) {
+        if (isArmed && strength > 0) {
+            strength /= reduce_strength_constant;
+            collectedTreasure += treasure.getLoot();
+        }
+    }
+
+    constexpr ValueType pay() {
         ValueType treasureFound = collectedTreasure;
         collectedTreasure = 0;
         return treasureFound;
     }
 };
 
-template <typename ValueType>
-class Adventurer<ValueType, false>{
-private:
-    ValueType collectedTreasure = 0;
-public:
-    Adventurer()= default;
-
-    void loot(auto &&treasure){
-        if(!treasure.isTrapped)
-         collectedTreasure = treasure.getLoot();
-    }
-};
-
-template <typename ValueType>
-class Adventurer<ValueType, true>{
-private:
-    ValueType collectedTreasure = 0;
-public:
-    size_t strength_t;
-
-    Adventurer(size_t strength): strength_t(strength){
-    }
-
-    void loot(auto &&treasure){
-        if(treasure.isTrapped && getStrength() > 0){
-            strength_t /= reduce_strength_constant;
-            collectedTreasure += treasure.getLoot();
-        }
-        else
-            collectedTreasure += treasure.getLoot();
-    }
-
-    ValueType getStrength(){
-        return strength_t;
-    }
-};
-
-template <typename ValueType>
+template<typename ValueType>
 using Explorer = Adventurer<ValueType, false>;
 
-template <typename ValueType, size_t completedExpeditions>
-class Veteran{
-    static_assert(completedExpeditions < 25, "Too many expeditions done");
+template<TreasureValid ValueType, std::size_t completedExpeditions> requires (completedExpeditions < 25)
+class Veteran {
+public:
+    using strength_t = uint32_t;
+
 private:
     ValueType collectedTreasure;
 
+    static constexpr strength_t nthFib(std::size_t n) {
+        strength_t fib1 = 0;
+        strength_t fib2 = 1;
+        strength_t sum;
+
+        for (int i = 1; i <= n; i++) {
+            sum = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = sum;
+        }
+
+        return fib1;
+    }
+
+    strength_t strength = nthFib(completedExpeditions);
 public:
 
-    Veteran()= default;
+    Veteran() = default;
 
     bool isArmed = true;
 
-    size_t strength;
-
-    void loot(auto &&treasure){
+    void loot(auto &&treasure) {
         collectedTreasure += treasure.getLoot();
     }
 
-    ValueType pay(){
+    ValueType pay() {
         ValueType treasureFound = collectedTreasure;
         collectedTreasure = 0;
         return treasureFound;
     }
 
-    size_t getStrength(){
-        // n-ta liczba fibonacciego
+    strength_t getStrength() {
+        return strength;
     }
 
 };
+
 #endif //MEMBER_H
