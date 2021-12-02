@@ -6,13 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/jk/Desktop/zadanie4JNP/main.cpp
+/home/tmk/JNP/zad4/Zadanie4JNP/main.cpp
 iostream
 -
 treasure.h
-/Users/jk/Desktop/zadanie4JNP/treasure.h
+/home/tmk/JNP/zad4/Zadanie4JNP/treasure.h
+member.h
+/home/tmk/JNP/zad4/Zadanie4JNP/member.h
 
-/Users/jk/Desktop/zadanie4JNP/treasure.h
+/home/tmk/JNP/zad4/Zadanie4JNP/member.h
 type_traits
+-
+treasure.h
+/home/tmk/JNP/zad4/Zadanie4JNP/treasure.h
+
+/home/tmk/JNP/zad4/Zadanie4JNP/treasure.h
+type_traits
+-
+concepts
 -
 

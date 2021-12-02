@@ -1,4 +1,18 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jk/Desktop/zadanie4JNP
+/home/tmk/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc-10 -DCMAKE_CXX_COMPILER=/usr/bin/g++-10 -G "CodeBlocks - Unix Makefiles" /home/tmk/JNP/zad4/Zadanie4JNP
+-- The C compiler identification is GNU 10.3.0
+-- The CXX compiler identification is GNU 10.3.0
+-- Check for working C compiler: /usr/bin/gcc-10
+-- Check for working C compiler: /usr/bin/gcc-10 - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++-10
+-- Check for working CXX compiler: /usr/bin/g++-10 - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/jk/Desktop/zadanie4JNP/cmake-build-debug
+-- Build files have been written to: /home/tmk/JNP/zad4/Zadanie4JNP/cmake-build-debug
