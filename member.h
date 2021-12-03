@@ -2,6 +2,7 @@
 #define MEMBER_H
 
 #include <type_traits>
+#include <cstdint>
 #include "treasure.h"
 
 static const int reduce_strength_constant = 2;
@@ -19,7 +20,7 @@ private:
 public:
     constexpr Adventurer() requires (!IsArmed) = default;
 
-    constexpr Adventurer(size_t strength) requires IsArmed: strength(strength) {}
+    constexpr Adventurer(std::size_t strength) requires IsArmed: strength(strength) {}
 
     constexpr strength_t getStrength() requires IsArmed {
         return strength;
@@ -55,14 +56,14 @@ public:
     using strength_t = uint32_t;
 
 private:
-    ValueType collectedTreasure;
+    ValueType collectedTreasure = 0;
 
     static constexpr strength_t nthFib(std::size_t n) {
         strength_t fib1 = 0;
         strength_t fib2 = 1;
         strength_t sum;
 
-        for (int i = 1; i <= n; i++) {
+        for (std::size_t i = 1; i <= n; i++) {
             sum = fib1 + fib2;
             fib1 = fib2;
             fib2 = sum;

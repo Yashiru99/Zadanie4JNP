@@ -1,7 +1,9 @@
 #ifndef TREASURE_HUNT_H
 #define TREASURE_HUNT_H
 
+#include <utility>
 #include "treasure.h"
+#include "member.h"
 
 // poprawna reprezentacja szablonu treasure
 template<typename T>
@@ -25,9 +27,12 @@ concept AdventurerType = requires (T a) {
 template<typename T>
 concept EncounterSide = TreasureType<T> || AdventurerType<T>;
 
-/* template<EncounterSide sideA, EncounterSide sideB>
-class Encounter{
-    run(encounter);
-} */
+template<EncounterSide sideA, EncounterSide sideB>
+using Encounter = std::pair<sideA&, sideB&>;
+
+template<TreasureType T, AdventurerType A>
+inline constexpr void run(Encounter<T, A> encounter) {
+
+}
 
 #endif //TREASURE_HUNT_H

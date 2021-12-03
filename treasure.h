@@ -14,20 +14,20 @@ private:
     ValueType value;
 public:
 
-    Treasure(ValueType v) : value(v){
+    constexpr Treasure(ValueType v) : value(v){
     }
 
-    ValueType evaluate(){
+    constexpr ValueType evaluate(){
         return value;
     }
 
-    ValueType getLoot(){
+    constexpr ValueType getLoot(){
         ValueType loot = value;
         value = 0;
         return loot;
     }
 
-    bool isTrapped = IsTrapped;
+    static constexpr bool isTrapped = IsTrapped;
 
 };
 
