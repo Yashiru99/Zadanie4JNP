@@ -5,21 +5,17 @@
 
 // poprawna reprezentacja szablonu treasure
 template<typename T>
-struct isTreasureStruct : std::false_type{};
-
-template<typename T, bool val>
-struct isTreasureStruct<Treasure<T, val>> : std::true_type{};
-
-template<typename T>
-concept isTreasure = isTreasureStruct<T>().operator bool();
+concept TresureType = requires (T a) {
+    {Treasure(a)} -> std::same_as<T>;
+};
 
 // poprawna reprezentacja szablonu uczestnika
 template<typename T>
-concept isAdventurer = requires (T v){
-    {v.strength_t};
-    {v.isArmed} -> std::convertible_to<bool>;
-    {v.pay()} -> TreasureValid;
-    // zostało jeszcze v.loot(treasure)
+concept isAdventurer = requires (T a) {
+    typename T::strength_t
+    {a.isArmed} -> std::same_as<bool>;
+    {a.pay()} -> TreasureValid;
+    a.loot(std::declval<Treasure<decltype(a.pay()), true || false>>());
 };
 
 template<typename T>
