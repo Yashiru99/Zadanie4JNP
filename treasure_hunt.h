@@ -5,21 +5,25 @@
 
 // poprawna reprezentacja szablonu treasure
 template<typename T>
-concept TresureType = requires (T a) {
+concept TreasureType = requires (T a) {
     {Treasure(a)} -> std::same_as<T>;
 };
 
 // poprawna reprezentacja szablonu uczestnika
 template<typename T>
-concept isAdventurer = requires (T a) {
-    typename T::strength_t
-    {a.isArmed} -> std::same_as<bool>;
+concept AdventurerType = requires (T a) {
+    typename T::strength_t;
+
+    std::convertible_to<decltype(T::isArmed), bool>;
+    {[] () constexpr { return T::isArmed; }()};
+
     {a.pay()} -> TreasureValid;
+
     a.loot(std::declval<Treasure<decltype(a.pay()), true || false>>());
 };
 
 template<typename T>
-concept EncounterSide = isTreasure<T> || isAdventurer<T>;
+concept EncounterSide = TreasureType<T> || AdventurerType<T>;
 
 /* template<EncounterSide sideA, EncounterSide sideB>
 class Encounter{
