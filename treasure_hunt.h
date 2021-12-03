@@ -32,7 +32,9 @@ using Encounter = std::pair<sideA&, sideB&>;
 
 template<TreasureType T, AdventurerType A>
 inline constexpr void run(Encounter<T, A> encounter) {
+    auto [sideA, sideB] = encounter;
 
+    sideB.loot(std::move(sideA));
 }
 
 #endif //TREASURE_HUNT_H
