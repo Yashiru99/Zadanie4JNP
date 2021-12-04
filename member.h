@@ -22,7 +22,7 @@ public:
 
     constexpr Adventurer(std::size_t strength) requires IsArmed: strength(strength) {}
 
-    constexpr strength_t getStrength() requires IsArmed {
+    constexpr strength_t getStrength() const requires IsArmed {
         return strength;
     }
 
@@ -30,7 +30,7 @@ public:
 
     constexpr void loot(Treasure<ValueType, false> &&treasure) {
         if (!treasure.isTrapped)
-            collectedTreasure = treasure.getLoot();
+            collectedTreasure += treasure.getLoot();
     }
 
     constexpr void loot(Treasure<ValueType, true> &&treasure) {
@@ -79,8 +79,13 @@ public:
 
     static constexpr bool isArmed = true;
 
-    constexpr void loot(auto &&treasure) {
+    constexpr void loot(Treasure<ValueType, false> &&treasure) {
         collectedTreasure += treasure.getLoot();
+    }
+
+    constexpr void loot(Treasure<ValueType, true> &&treasure) {
+        if (strength > 0)
+            collectedTreasure += treasure.getLoot();
     }
 
     constexpr ValueType pay() {
@@ -89,7 +94,7 @@ public:
         return treasureFound;
     }
 
-    constexpr strength_t getStrength() {
+    constexpr strength_t getStrength() const {
         return strength;
     }
 };
