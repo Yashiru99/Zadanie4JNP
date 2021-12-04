@@ -4,7 +4,7 @@
 #include <type_traits>
 #include <concepts>
 
-
+/* Content of a trasure must be a valid integral */
 template<typename ValueType>
 concept TreasureValid = std::integral<ValueType>;
 

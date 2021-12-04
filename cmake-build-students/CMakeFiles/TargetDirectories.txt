@@ -1,3 +1,0 @@
-/tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles/rebuild_cache.dir
-/tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles/edit_cache.dir
-/tmp/tmp.dIjovpnUdW/cmake-build-students/CMakeFiles/zadanie4JNP.dir

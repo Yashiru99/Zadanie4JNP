@@ -6,13 +6,13 @@
 #include "treasure.h"
 #include "member.h"
 
-// poprawna reprezentacja szablonu treasure
+/* Concpet for correct representation of Treasure type */
 template<typename T>
 concept TreasureType = requires(T a) {
     { Treasure(a) } -> std::same_as<T>;
 };
 
-// poprawna reprezentacja szablonu uczestnika
+/* Concept for correct represantation of Adventurer type */
 template<typename T>
 concept MemberType = requires(T a) {
     typename T::strength_t;
@@ -31,6 +31,7 @@ concept EncounterSide = TreasureType<T> || MemberType<T>;
 template<EncounterSide sideA, EncounterSide sideB>
 using Encounter = std::pair<sideA &, sideB &>;
 
+/* Looting treasurer by adventurer */
 template<TreasureType T, MemberType M>
 inline constexpr void run(Encounter<T, M> encounter) {
     auto[TreasureA, MemberB] = encounter;
@@ -45,6 +46,7 @@ inline constexpr void run(Encounter<M, T> encounter) {
     MemberA.loot(std::move(TreasureB));
 }
 
+/* Encounter of two armed adventurers */
 template<MemberType MA, MemberType MB>
 inline constexpr void run(Encounter<MA, MB> encounter) requires (MA::isArmed) && (MB::isArmed) {
     auto [MemberA, MemberB] = encounter;
@@ -56,6 +58,7 @@ inline constexpr void run(Encounter<MA, MB> encounter) requires (MA::isArmed) &&
     }
 }
 
+/* Encounter of two adventurers from which only one is armed */
 template<MemberType MA, MemberType MB>
 inline constexpr void run(Encounter<MA, MB> encounter) requires (MA::isArmed) && (!MB::isArmed) {
     auto [MemberA, MemberB] = encounter;
@@ -70,9 +73,11 @@ inline constexpr void run(Encounter<MA, MB> encounter) requires (!MA::isArmed) &
     MemberB.loot(SafeTreasure(MemberA.pay()));
 }
 
+/* Encounter of two unarmed adventurers */
 template<MemberType MA, MemberType MB>
 inline constexpr void run(Encounter<MA, MB> encounter) requires (!MA::isArmed) && (!MB::isArmed) {}
 
+/* Running a sequence of encounters */
 template<typename... Args>
 constexpr void expedition(Args... args) {
     (run(args), ...);
